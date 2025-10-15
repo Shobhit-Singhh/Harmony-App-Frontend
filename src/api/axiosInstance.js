@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthService } from "../services/authService";
 
 const API = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8000",
+    baseURL: "https://harmony-app-backend.onrender.com",
     headers: {
         'Content-Type': 'application/json',
     },
