@@ -33,7 +33,7 @@ const UnifiedAuth = () => {
 
         try {
             let response;
-            const baseURL = 'https://harmony-app-backend.onrender.com';
+            const baseURL = import.meta.env.VITE_API_BASE_URL || 'https://harmony-app-backend.onrender.com';
 
             if (mode === 'login') {
                 response = await fetch(`${baseURL}/auth/login`, {

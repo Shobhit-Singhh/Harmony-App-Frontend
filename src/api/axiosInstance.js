@@ -3,10 +3,8 @@ import axios from "axios";
 import { AuthService } from "../services/authService";
 
 const API = axios.create({
-    baseURL: "https://harmony-app-backend.onrender.com",
-    headers: {
-        'Content-Type': 'application/json',
-    },
+    baseURL: import.meta.env.VITE_API_BASE_URL,
+    headers: { "Content-Type": "application/json" },
 });
 
 API.interceptors.request.use((config) => {
