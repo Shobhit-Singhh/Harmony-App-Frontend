@@ -4,7 +4,10 @@ import { AuthService } from "../services/authService";
 
 const API = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL,
-    headers: { "Content-Type": "application/json" },
+    headers: { 
+        "Content-Type": "application/json",
+    },
+    withCredentials: true,  // ✅ Important for CORS with credentials
 });
 
 API.interceptors.request.use((config) => {
