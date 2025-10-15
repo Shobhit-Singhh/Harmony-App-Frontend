@@ -30,7 +30,7 @@ API.interceptors.response.use(
                 if (!refresh_token) throw new Error("No refresh token available");
 
                 const res = await axios.post(
-                    `${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}/auth/refresh`,
+                    `${"https://harmony-app-backend.onrender.com"}/auth/refresh`,
                     { refresh_token }
                 );
 

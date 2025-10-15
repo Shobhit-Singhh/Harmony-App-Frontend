@@ -33,7 +33,7 @@ const UnifiedAuth = () => {
 
         try {
             let response;
-            const baseURL = 'http://localhost:8000';
+            const baseURL = 'https://harmony-app-backend.onrender.com';
 
             if (mode === 'login') {
                 response = await fetch(`${baseURL}/auth/login`, {
