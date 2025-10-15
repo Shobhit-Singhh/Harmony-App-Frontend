@@ -1,7 +1,16 @@
 // src/layouts/Sidebar.jsx
 import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { FiHome, FiStar, FiMessageCircle, FiUser, FiAlertCircle } from "react-icons/fi";
+import {
+    FiHome,
+    FiStar,
+    FiUsers,
+    FiCpu,
+    FiBarChart2,
+    FiBookOpen,
+    FiFlag,
+    FiAlertCircle
+} from "react-icons/fi";
 import Button from "../components/common/Button";
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
@@ -9,11 +18,13 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const menuItems = [
-        { id: "dashboard", path: "/dashboard", icon: FiHome, label: "Dashboard" },
-        { id: "recommendation", path: "/recommendation", icon: FiStar, label: "Recommendation" },
-        { id: "community", path: "/community", icon: FiMessageCircle, label: "Community" },
-        { id: "sagebot", path: "/sagebot", icon: FiMessageCircle, label: "SageBot" },
-        { id: "profile", path: "/profile", icon: FiUser, label: "Profile" },
+        { id: "dashboard", path: "/dashboard", icon: FiHome, label: "Dashboard" },          // keeps home
+        { id: "recommendation", path: "/recommendation", icon: FiStar, label: "Recommendation" }, // keep star
+        { id: "community", path: "/community", icon: FiUsers, label: "Community" },        // users for community
+        { id: "sagebot", path: "/sagebot", icon: FiCpu, label: "SageBot" },               // cpu/robot icon for AI bot
+        { id: "insights", path: "/insights", icon: FiBarChart2, label: "Insights" },      // bar chart for analytics
+        { id: "dailylogs", path: "/dailylogs", icon: FiBookOpen, label: "DailyLogs" },    // open book for logs
+        { id: "onboarding", path: "/onboarding", icon: FiFlag, label: "Onboarding" },     // flag for start/onboarding
     ];
 
     useEffect(() => {
@@ -64,8 +75,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                             >
                                 <Icon
                                     className={`w-6 h-6 min-w-[24px] min-h-[24px] ${location.pathname === item.path || activeTab === item.id
-                                            ? "text-blue-600"
-                                            : "text-gray-500"
+                                        ? "text-blue-600"
+                                        : "text-gray-500"
                                         } transition-colors`}
                                 />
                                 {!collapsed && <span className="font-medium text-sm">{item.label}</span>}
